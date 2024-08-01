@@ -1,92 +1,37 @@
 <template>
 <div>
-<!-- v-if, v-else -->
-<table>
-  <thead>
-    <th>품명</th>
-    <th>가격</th>
-    <th>품목</th>
-    <th>배송료</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>마우스1</td>
-      <td>10000</td>
-      <td>PC용품</td>
-      <td>2500</td>
-    </tr>
-    <tr>
-      <td>마우스2</td>
-      <td>10000</td>
-      <td>PC용품</td>
-      <td>2500</td>
-    </tr>
-    <tr>
-      <td>마우스3</td>
-      <td>10000</td>
-      <td>PC용품</td>
-      <td>2500</td>
-    </tr>
-  </tbody>
-</table><br/>
-
-<table>
-  <thead>
-    <th>품명</th>
-    <th>가격</th>
-    <th>품목</th>
-    <th>배송료</th>
-  </thead>
-  <tbody>
-    <tr v-for="(item,index) in goods" v-bind:key="index">
-      <td>{{item.name}}</td>
-      <td>{{item.price}}</td>
-      <td>{{item.category}}</td>
-      <td>{{item.delivery}}</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<div>
-  <p v-if="true">호랑이</p><br/>
-  <p v-if="false">사자</p><br/>
-</div>
-<!-- v-else-if -->
-<div>
-  <label>점수를 입력하세요.
-    <input type="number" v-model="score">
-  </label><br/>
-  <p v-if="score>=90">A학점</p>
-  <p v-else-if="score>=80">B학점</p>
-  <p v-else-if="score>=70">C학점</p>
-  <p v-else-if="score>=60">D학점</p>
-  <p v-else>F학점</p>
+  <select name="" id="">
+    <option value="서울">서울</option>
+    <option value="부산">부산</option>
+    <option value="대구" selected>대구</option>
+    <option value="수원">수원</option>
+    <option value="광주">광주</option>
+  </select>
 </div>
 <div>
-  <label>점수를 입력하세요.<br/>
-    국어: <input type="number" v-model.number="kor"><br/>
-    영어: <input type="number" v-model.number="eng"><br/>
-    수학: <input type="number" v-model.number="math"><br/>
-  </label><br/>
-  <p>학점 평균 : {{age_score}}</p>
-  <p v-if="total_score>=90">A학점</p>
-  <p v-else-if="total_score>=80">B학점</p>
-  <p v-else-if="total_score>=70">C학점</p>
-  <p v-else-if="total_score>=60">D학점</p>
-  <p v-else>F학점</p>
+  <select v-model="city" @change="changeCity">
+    <option value="서울">서울</option>
+    <option value="부산">부산</option>
+    <option value="대구">대구</option>
+    <option value="수원">수원</option>
+    <option value="광주">광주</option>
+  </select>
+  <p>{{message}}</p>
 </div>
-    <!-- 이벤트 v-on / @ -->
 <div>
-  <button v-on:click="showMessage">메세지 버튼</button>
-</div>
-    <!-- 구구단 -->
-<div>
-  <label><input type="number" v-model="dan"> 단</label><br/>
-  <button @click="googoodan">계산</button>
-  <p>{{dan}}단</p>
-  <p v-for="(line,index) in googoo" :key="index">{{line}}</p>
-</div>
+    <p><label >이메일<input type="text" placeholder="이메일을 입력하세요"
+    v-model="emailValue"
+    @input="changeEmail"></label><br/><span>{{msgEmail}}</span></p><br/>
+    <!-- 8자이상 숫자문자조합 @#제외 비번과 비번확인 일치 -->
+    <p><label >비밀번호<input type="text"
+    v-model="pwd1"
+    @input="changePwd"  placeholder="비밀번호를 입력하세요"></label><br/>
+    <span>{{msgPwd1}}</span></p><br/>
+    <p><label >비밀번호확인<input type="text"
+    v-model='pwd2'
+    @input="changePwd2" placeholder="비밀번호확인을 입력하세요"></label><br/>
+    <span>{{msgPwd2}}</span></p><br/>
+  </div>
 </template>
 
 <script>
@@ -97,49 +42,85 @@ export default {
   },
   data() {
     return {
-      goods:[
-        {"name":"마우스", "price":"10000", "category":"PC용품", "delivery":"2500"},
-        {"name":"키보드", "price":"30000", "category":"PC용품", "delivery":"2500"},
-        {"name":"모니터", "price":"2000000", "category":"PC용품", "delivery":"0"},
-      ],
-      score:0,
-      kor:'',
-      eng:'',
-      math:'',
-      dan:2,
-      googoo:[],
+      city:'광주',
+      message:'',
+      emailValue:'',
+      msgEmail:'이메일을 입력하세요.',
+      pwd1:'',
+      pwd2:'',
+      msgPwd1:'비밀번호를 입력하세요.',
+      msgPwd2:'비밀번호 확인을 입력하세요.',
     };
   },
   methods: {
-    showMessage(){
-      alert('메세지 발생');
+    checkPwd(pwd){
+        let msg = '';
+        // 문자열길이
+        const len = pwd.length;
+        // 문자포함
+        const hasWord = /[a-zA-Z]/.test(pwd);
+        // 숫자포함
+        const hasNum = /[\d]/.test(pwd);
+        // 금지어포함여부
+        const hasForbid = /[@#]/.test(pwd);
+        if(len < 8) {
+            msg='비밀번호는 8자리 이상이어야 합니다.';
+        } else if(!hasWord) {
+            msg='비밀번호에는 문자가 포함되어야 합니다.';
+        } else if(!hasNum) {
+            msg='비밀번호에는 숫자가 포함되어야 합니다.';
+        } else if(hasForbid) {
+            msg='@, # 금지단어입니다.';
+        } else{
+            msg='';
+        }
+        return msg;
     },
-    showScore(){
-      this.score = (this.kor + this.eng + this+this.math)/3;
+    changePwd(){
+        let msg = this.checkPwd(this.pwd1);
+        if(msg === ''){
+            msg='비밀번호가 유효합니다.';
+        }
+        this.msgPwd1 = msg;
     },
-    googoodan(){
-      this.googoo=[];
-      for(let n=1; n<10; n++){
-        this.googoo.push(`${this.dan} * ${n} = ${this.dan*n}`);
+    changePwd2(){
+        let msg = this.checkPwd(this.pwd2);
+        if(msg == ''){
+            if(this.pwd1 === this.pwd2){
+                msg='비밀번호확인이 일치합니다.';
+            } else{
+                msg='비밀번호확인이 일치하지 않습니다.'
+            }
+        }
+        this.msgPwd2 = msg;
+    },
+    changeCity(){
+      switch(this.city){
+        case '서울': this.message='안녕하세요 반갑습니다.'; break;
+        case '부산': this.message='안녕하십니꺼 반갑스니더.'; break;
+        case '대구': this.message='안녕하셔유 반가워유.'; break;
+        case '수원': this.message='안녕하시오 반갑소잉.'; break;
+        case '광주': this.message='안녕하세요 반갑습니다.'; break;
+        default : this.message='안녕하세요 반갑습니다.'; break;
       }
-      this.dan
-    }
+    },
+    changeEmail(){
+        // this.emailValue이 이메일 형식에 맞는지 체크
+        const emailExp =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //문자열 + @ + 문자열 + . + 문자열
+        if(this.emailValue.length == 0){
+            this.msgEmail='이메일을 입력하세요';
+        } else if (emailExp.test(this.emailValue) == true ) {
+            this.msgEmail = '정상적인 이메일 주소입니다.';
+        } else {
+            this.msgEmail = '이메일 주소가 올바르지 않습니다.';
+        }
+    },
   },
   computed: {
-    total_score(){
-      return (this.kor + this.eng + this.math) / 3;
-    },
-    age_score(){
-      return this.total_score.toFixed(1);
-    }
   },
 };
 </script>
 
 <style scoped>
-table{
-  width: 100%;
-  border-collapse: collapse;
-  }
-td,th{border: 1px solid #ddd;}
+
 </style>
