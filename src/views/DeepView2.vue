@@ -1,7 +1,7 @@
 <template>
   <div class="son">
     <!-- 내용을 추가하세요 -->
-    <p>큰아들 : {{message}} {{computedMsg}}</p>
+    <p>큰아들 : {{message}}</p>
     <cute-gson-11 ref="gson11"/>
     <cute-gson-12 ref="gson12" @event_report="receiveEvent"/>
     <input type="text" v-model="sndMessage">
@@ -12,31 +12,11 @@
 </template>
 
 <script>
-import CuteGson11 from './CuteGson11.vue';
-import CuteGson12 from './CuteGson12.vue';
+import CuteGson11 from '../components/CuteGson11.vue';
+import CuteGson12 from '../components/CuteGson12.vue';
 export default {
-  name: 'GoodSon10',
+  name: 'DeepView2',
   props: {
-    // 문자열 타입의 prop 예시
-    //sampleString: {
-    //  type: String,
-    //  default: ''
-    //},
-    // 숫자 타입의 prop 예시
-    //sampleNumber: {
-    //  type: Number,
-    //  default: 0
-    //},
-    // 배열 타입의 prop 예시
-    //sampleArray: {
-    //  type: Array,
-    //  default: () => []
-    //},
-    // 객체 타입의 prop 예시
-    //sampleObject: {
-    //  type: Object,
-    //  default: () => ({})
-    //}
   },
   components: {
     CuteGson11,
@@ -50,13 +30,10 @@ export default {
     };
   },
   computed:{
-    computedMsg(){
-      if(this.$refs.gson11){
-        // this.message = '강아지';
-        return this.$refs.gson11.gsonMsg+'!!';
-      }
-      return '';
-    }
+    // msg(){
+    //   this.message = this.$refs.gson11.gsonMsg+'!!';
+    //   return '';
+    // },
   },
   methods: {
     clickSon10() {
@@ -68,7 +45,7 @@ export default {
       this.$refs.gson12.clickMsg('큰아버지가 둘째아들에게 명령함');
     },
     clickSon30() {
-      this.message='큰아들이 버튼을 눌렀습니다.'
+      this.message='큰아빠가 버튼을 눌렀습니다.'
       this.$refs.gson11.message = this.sndMessage;
       this.$refs.gson12.message = this.sndMessage;
     },
@@ -77,10 +54,11 @@ export default {
       this.$refs.gson11.changeTextColor(idx,data);
       this.$refs.gson12.changeTextColor(idx,data);
       // alert('goodson2=>'+idx+','+data);
+      
     },
-    receiveEvent(data) {
-      this.message = data;
-    }
+    receiveEvent(data){
+      this.message=data;
+    },
     
   },
   setup() {
@@ -90,7 +68,6 @@ export default {
     // 컴포넌트가 생성될 때 실행될 로직을 작성합니다.
   },
   mounted() {
-    this.$forceUpdate();
     // 컴포넌트가 DOM에 마운트된 직후 실행될 로직을 작성합니다.
   },
   unmounted() {
@@ -101,7 +78,7 @@ export default {
 
 <style scoped>
 .son{
-  background-color: rgb(128, 117, 100);
+  background-color: moccasin;
   padding:20px;
   margin: 20px;
 }

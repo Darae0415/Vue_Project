@@ -1,6 +1,7 @@
 <template>
   <div class="gson">
      <p :style="{color:tcolor}">작손2 : {{message}}</p>
+     
   </div>
 </template>
 
