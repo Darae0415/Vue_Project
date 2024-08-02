@@ -3,7 +3,7 @@
     <!-- 내용을 추가하세요 -->
     <p>큰아들 : {{message}}</p>
     <cute-gson-11 ref="gson11"/>
-    <cute-gson-12 ref="gson12"/>
+    <cute-gson-12 ref="gson12" @event_report="receiveEvent"/>
     <input type="text" v-model="sndMessage">
     <button @click="clickSon10">큰아들버튼</button>
     <button @click="clickSon20">큰아들버튼2</button>
@@ -48,7 +48,11 @@ export default {
       this.$refs.gson11.changeTextColor(idx,data);
       this.$refs.gson12.changeTextColor(idx,data);
       // alert('goodson2=>'+idx+','+data);
-    }
+      
+    },
+    receiveEvent(data){
+      this.message=data;
+    },
     
   },
   setup() {
