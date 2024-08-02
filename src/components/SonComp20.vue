@@ -1,20 +1,18 @@
 <template>
   <div class="son">
-    <p>작은아들</p><br/>
-    <cute-gson-21/><br/>
-    <cute-gson-22/><br/>
+    <!-- 내용을 추가하세요 -->
+    <p>둘째아들</p>
+    <cute-gson-21 ref="gson21"/>
+    <cute-gson-22 ref="gson22"/>
+  
   </div>
 </template>
 
 <script>
-import CuteGson21 from "@/components/CuteGson21.vue"
-import CuteGson22 from "@/components/CuteGson22.vue"
+import CuteGson21 from './CuteGson21.vue';
+import CuteGson22 from './CuteGson22.vue';
 export default {
-  name: 'SonComp20',
-  components: {
-    // 추가적으로 사용할 컴포넌트들을 등록합니다.
-    CuteGson21,CuteGson22
-  },
+  name: 'GoodSon20',
   props: {
     // 문자열 타입의 prop 예시
     //sampleString: {
@@ -37,7 +35,10 @@ export default {
     //  default: () => ({})
     //}
   },
-  
+  components: {
+    CuteGson21,CuteGson22
+    // 추가적으로 사용할 컴포넌트들을 등록합니다.
+  },
   data() {
     return {
       // 컴포넌트의 데이터를 초기화합니다.
@@ -56,10 +57,10 @@ export default {
     // 필요한 계산된 속성을 정의합니다.
   },
   methods: {
-    // sample3() {
-    //   return '';
-    // }
-    // 컴포넌트에서 사용할 메서드를 정의합니다.
+    changeTextColor(idx, data){
+      this.$refs.gson21.changeTextColor(idx,data);
+      this.$refs.gson22.changeTextColor(idx,data);
+    }
   },
   setup() {
     // Vue 3 Composition API의 setup 함수에서 추가적인 로직을 처리할 수 있습니다.
@@ -79,7 +80,7 @@ export default {
 <style scoped>
 .son{
   background-color: moccasin;
-  padding: 20px;
+  padding:20px;
   margin: 20px;
 }
 .gson{

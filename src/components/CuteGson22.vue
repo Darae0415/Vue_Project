@@ -1,6 +1,6 @@
 <template>
   <div class="gson">
-     작손2
+     <p :style="{color:tcolor}">작손2</p>
   </div>
 </template>
 
@@ -34,6 +34,8 @@ export default {
   },
   data() {
     return {
+      index:2,
+      tcolor:'red',
       // 컴포넌트의 데이터를 초기화합니다.
     };
   },
