@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TestView from '../views/TestView.vue'
 import BasicView from '../views/BasicView.vue'
-import UserView from '../views/UserView.vue'
+// import UserView from '../views/UserView.vue'
+import DeepView from '../views/DeepView.vue'
 const routes = [
   {
     path: '/',
@@ -28,9 +29,9 @@ const routes = [
     component: BasicView
   },
   {
-    path: '/user',
-    name: 'user',
-    component: UserView
+    path: '/deep',
+    name: 'deep',
+    component: DeepView
   }
 
 ]

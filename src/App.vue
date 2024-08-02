@@ -3,8 +3,8 @@
     <router-link to="/">HOME</router-link> 
     <router-link to="/about">ABOUT</router-link> 
     <router-link to="/test">TEST</router-link>
-    <router-link to="/basic">3.컴포넌트(기본)</router-link>
-    <router-link to="/user">LOGIN</router-link>
+    <router-link to="/basic">5.컴포넌트(기본)</router-link>
+    <router-link to="/deep">8.컴포넌트(심화) </router-link>
   </nav>
   <router-view/>
 </template>
@@ -33,7 +33,7 @@ nav {
 }
 nav a {
   text-decoration: none;
-  color : #0008FC;
+  color : #4b4b4b;
   text-transform:uppercase;
   font-size: 12px;
   text-align:center;
