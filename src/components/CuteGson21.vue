@@ -1,7 +1,7 @@
 <template>
   <div class="gson">
     <!-- 내용을 추가하세요 -->
-    <p v-bind:style="{color:tcolor}" >작은집손자 2 </p>
+    <p v-bind:style="{color:tcolor}" >작은집손자 2 : {{message}}</p>
   </div>
 </template>
 
@@ -9,26 +9,7 @@
 export default {
   name: 'CuteGson22',
   props: {
-    // 문자열 타입의 prop 예시
-    //sampleString: {
-    //  type: String,
-    //  default: ''
-    //},
-    // 숫자 타입의 prop 예시
-    //sampleNumber: {
-    //  type: Number,
-    //  default: 0
-    //},
-    // 배열 타입의 prop 예시
-    //sampleArray: {
-    //  type: Array,
-    //  default: () => []
-    //},
-    // 객체 타입의 prop 예시
-    //sampleObject: {
-    //  type: Object,
-    //  default: () => ({})
-    //}
+
   },
   components: {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
@@ -38,6 +19,7 @@ export default {
       // 컴포넌트의 데이터를 초기화합니다.
       index:2,
       tcolor:'red',
+      message:'',
     };
   },
   watch: {

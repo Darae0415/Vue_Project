@@ -1,10 +1,10 @@
 <template>
   <div class="son">
-    <!-- 내용을 추가하세요 -->
     <p>둘째아들</p>
     <cute-gson-21 ref="gson21"/>
     <cute-gson-22 ref="gson22"/>
-  
+    <input type="text" v-model="sndMsg">
+    <input type="button" value="둘째아들버튼" @click="clickBtn">
   </div>
 </template>
 
@@ -14,26 +14,6 @@ import CuteGson22 from './CuteGson22.vue';
 export default {
   name: 'GoodSon20',
   props: {
-    // 문자열 타입의 prop 예시
-    //sampleString: {
-    //  type: String,
-    //  default: ''
-    //},
-    // 숫자 타입의 prop 예시
-    //sampleNumber: {
-    //  type: Number,
-    //  default: 0
-    //},
-    // 배열 타입의 prop 예시
-    //sampleArray: {
-    //  type: Array,
-    //  default: () => []
-    //},
-    // 객체 타입의 prop 예시
-    //sampleObject: {
-    //  type: Object,
-    //  default: () => ({})
-    //}
   },
   components: {
     CuteGson21,CuteGson22
@@ -41,6 +21,7 @@ export default {
   },
   data() {
     return {
+      sndMsg:'',
       // 컴포넌트의 데이터를 초기화합니다.
     };
   },
@@ -60,7 +41,11 @@ export default {
     changeTextColor(idx, data){
       this.$refs.gson21.changeTextColor(idx,data);
       this.$refs.gson22.changeTextColor(idx,data);
-    }
+    },
+    clickBtn(){
+      this.$refs.gson21.message = this.sndMsg;
+      this.$refs.gson22.message = this.sndMsg;
+    },
   },
   setup() {
     // Vue 3 Composition API의 setup 함수에서 추가적인 로직을 처리할 수 있습니다.
