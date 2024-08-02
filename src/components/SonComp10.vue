@@ -1,8 +1,9 @@
 <template>
   <div class="son">
-    <p>큰아들</p><br/>
-    <cute-gson-11/><br/>
-    <cute-gson-12/><br/>
+    <p>큰아들 : {{message}}</p><br/>
+    <cute-gson-11 ref="gson11"/><br/>
+    <cute-gson-12 ref="gson12"/><br/>
+    <button @click="clickSon10">큰아들버튼</button><br/>
   </div>
 </template>
 
@@ -12,26 +13,7 @@ import CuteGson12 from './CuteGson12.vue';
 export default {
   name: 'SonComp10',
   props: {
-    // 문자열 타입의 prop 예시
-    //sampleString: {
-    //  type: String,
-    //  default: ''
-    //},
-    // 숫자 타입의 prop 예시
-    //sampleNumber: {
-    //  type: Number,
-    //  default: 0
-    //},
-    // 배열 타입의 prop 예시
-    //sampleArray: {
-    //  type: Array,
-    //  default: () => []
-    //},
-    // 객체 타입의 prop 예시
-    //sampleObject: {
-    //  type: Object,
-    //  default: () => ({})
-    //}
+
   },
   components: {
     CuteGson11,CuteGson12
@@ -39,25 +21,22 @@ export default {
   },
   data() {
     return {
+      message:'',
       // 컴포넌트의 데이터를 초기화합니다.
     };
   },
   watch: {
-    // sample1() {
-    //   console.log('');
-    // }
     // 데이터를 감시하고 처리할 로직을 작성합니다.
   },
   computed: {
-    // sample2() {
-    //   return '';
-    // }
+
     // 필요한 계산된 속성을 정의합니다.
   },
   methods: {
-    // sample3() {
-    //   return '';
-    // }
+    clickSon10(){
+      this.message = '큰 아들이 버튼을 눌렀습니다.'
+      this.$refs.gson11.clickMsg();
+    }
     // 컴포넌트에서 사용할 메서드를 정의합니다.
   },
   setup() {

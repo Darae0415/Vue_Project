@@ -1,6 +1,7 @@
 <template>
   <div class="gson">
-    큰손1
+    <p>큰손1 : {{message}}</p>
+    <button @click="clickMsg">장손메세지</button>
   </div>
 </template>
 
@@ -34,6 +35,7 @@ export default {
   },
   data() {
     return {
+      message:'',
       // 컴포넌트의 데이터를 초기화합니다.
     };
   },
@@ -50,9 +52,9 @@ export default {
     // 필요한 계산된 속성을 정의합니다.
   },
   methods: {
-    // sample3() {
-    //   return '';
-    // }
+    clickMsg(){
+      this.message = '장손이 버튼을 눌렀습니다.';
+    },
     // 컴포넌트에서 사용할 메서드를 정의합니다.
   },
   setup() {
