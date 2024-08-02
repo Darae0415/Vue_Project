@@ -86,6 +86,6 @@ export default {
 
 <style scoped>
 .page_title{
-  background-color: darksalmon;
+  background-color: rgb(255, 221, 228);
 }
 </style>

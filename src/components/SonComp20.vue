@@ -1,22 +1,41 @@
 <template>
-  <div class="">
-    <br><br><br><br><br><br><br>
-    <SonComp10/>
-    <SonComp20/>
+  <div class="son">
+    <p>작은아들</p><br/>
+    <cute-gson-21/><br/>
+    <cute-gson-22/><br/>
   </div>
 </template>
 
 <script>
-import SonComp10 from '@/components/SonComp10.vue';
-import SonComp20 from '@/components/SonComp20.vue';
-
+import CuteGson21 from "@/components/CuteGson21.vue"
+import CuteGson22 from "@/components/CuteGson22.vue"
 export default {
-  name: 'TestView',
+  name: 'SonComp20',
   components: {
-    SonComp10,SonComp20,
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
+    CuteGson21,CuteGson22
   },
   props: {
+    // 문자열 타입의 prop 예시
+    //sampleString: {
+    //  type: String,
+    //  default: ''
+    //},
+    // 숫자 타입의 prop 예시
+    //sampleNumber: {
+    //  type: Number,
+    //  default: 0
+    //},
+    // 배열 타입의 prop 예시
+    //sampleArray: {
+    //  type: Array,
+    //  default: () => []
+    //},
+    // 객체 타입의 prop 예시
+    //sampleObject: {
+    //  type: Object,
+    //  default: () => ({})
+    //}
   },
   
   data() {
@@ -58,5 +77,12 @@ export default {
 </script>
 
 <style scoped>
-/* 스타일을 추가하세요 */
+.son{
+  background-color: moccasin;
+  padding: 20px;
+  margin: 20px;
+}
+.gson{
+  background-color: yellow;
+}
 </style>
