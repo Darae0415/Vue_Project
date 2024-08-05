@@ -1,6 +1,9 @@
 <template>
   <div class="">
-    CalcylatorView1
+    <h3>CalcylatorView1</h3>
+    <input type="text" v-model="num1" @keyup="plusNumbers"><span> + </span>
+    <input type="text" v-model="num2" @keyup="plusNumbers"><span> = </span>
+    <span> {{result}} </span>
   </div>
 </template>
 
@@ -15,25 +18,23 @@ export default {
   },
   data() {
     return {
-      // 컴포넌트의 데이터를 초기화합니다.
+      num1:0,
+      num2:0,
+      result:0,
     };
   },
   watch: {
-    // sample1() {
-    //   console.log('');
-    // }
+
     // 데이터를 감시하고 처리할 로직을 작성합니다.
   },
   computed: {
-    // sample2() {
-    //   return '';
-    // }
+
     // 필요한 계산된 속성을 정의합니다.
   },
   methods: {
-    // sample3() {
-    //   return '';
-    // }
+    plusNumbers(){
+      this.result = Number(this.num1) + Number(this.num2);
+    }
     // 컴포넌트에서 사용할 메서드를 정의합니다.
   },
   setup() {
