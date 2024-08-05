@@ -1,56 +1,35 @@
 <template>
   <div class="">
-    CalcylatorView4
+    <!-- composition API 사용 -->
+    <h3>CalcylatorView4</h3>
+    <input type="text" v-model="state.num1"><span> + </span>
+    <input type="text" v-model="state.num2"><span> = </span>
+    <span>{{state.result}}</span>
   </div>
 </template>
 
 <script>
+import {reactive, computed} from 'vue';
+
 export default {
   name: 'CalcylatorView4',
-  props: {
+  setup(){
+    //반응형 상태객체 : 속성이 변경될 때마다 자동으로 DOM업데이트
 
+    //reactive : 데이터를 바꿀 때마다 화면도 자동 업데이트 되도록 해줌
+    let state = reactive({
+      num1:0, //첫번째 텍스트박스와 바인딩 될 숫자 상태
+      num2:0, //두번째 텍스트박스와 바인딩 될 숫자 상태
+      result: computed( ()=>Number(state.num1)+Number(state.num2) ),
+      //computed : 자동으로 계산해줌 num1, num2가 바뀔때마다 result도 알아서 계산
+      //계산된 결과를 저장할 상태
+    });
+    return{state};
   },
-  components: {
-    // 추가적으로 사용할 컴포넌트들을 등록합니다.
-  },
-  data() {
-    return {
-      // 컴포넌트의 데이터를 초기화합니다.
-    };
-  },
-  watch: {
-    // sample1() {
-    //   console.log('');
-    // }
-    // 데이터를 감시하고 처리할 로직을 작성합니다.
-  },
-  computed: {
-    // sample2() {
-    //   return '';
-    // }
-    // 필요한 계산된 속성을 정의합니다.
-  },
-  methods: {
-    // sample3() {
-    //   return '';
-    // }
-    // 컴포넌트에서 사용할 메서드를 정의합니다.
-  },
-  setup() {
-    // Vue 3 Composition API의 setup 함수에서 추가적인 로직을 처리할 수 있습니다.
-  },
-  created() {
-    // 컴포넌트가 생성될 때 실행될 로직을 작성합니다.
-  },
-  mounted() {
-    // 컴포넌트가 DOM에 마운트된 직후 실행될 로직을 작성합니다.
-  },
-  unmounted() {
-    // 컴포넌트가 파괴되기 전 실행될 로직을 작성합니다.
-  }
+
 };
 </script>
 
 <style scoped>
-/* 스타일을 추가하세요 */
+
 </style>

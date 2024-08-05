@@ -9,6 +9,7 @@ import CalculatorView1 from '../views/CalculatorView1.vue'
 import CalculatorView2 from '../views/CalculatorView2.vue'
 import CalculatorView3 from '../views/CalculatorView3.vue'
 import CalculatorView4 from '../views/CalculatorView4.vue'
+import MixView from '../views/MixView.vue'
 const routes = [
   {
     path: '/',
@@ -18,10 +19,7 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: MixView
   },
   {
     path: '/test',
@@ -63,8 +61,14 @@ const routes = [
     name: 'calculator4',
     component: CalculatorView4
   },
+  {
+    path: '/Mixin',
+    name: 'Mixin',
+    component: MixView
+  },
 
 ]
+MixView
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
