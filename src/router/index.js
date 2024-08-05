@@ -10,7 +10,8 @@ import CalculatorView2 from '../views/CalculatorView2.vue'
 import CalculatorView3 from '../views/CalculatorView3.vue'
 import CalculatorView4 from '../views/CalculatorView4.vue'
 import MixView from '../views/MixView.vue'
-import UsersView from '../views/UsersView'
+import UsersView from '../views/UsersView.vue'
+import MemberView from '../views/MemberView.vue'
 const routes = [
   {
     path: '/',
@@ -71,6 +72,11 @@ const routes = [
     path: '/User',
     name: 'User',
     component: UsersView
+  },
+  {
+    path: '/member',
+    name: 'member',
+    component: MemberView
   },
 ]
 MixView

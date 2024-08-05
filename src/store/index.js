@@ -8,6 +8,7 @@ const store = createStore(
     state(){
       return{
         user:{},
+        members:[],
       }
     },
     getters:{
@@ -15,9 +16,19 @@ const store = createStore(
     },
     // 변의정의
     mutations:{
+      //함수값을 넣는 함수
       setUser(state, data){
         state.user = data;
-      }
+      },
+      setMemberList(state,members){
+        state.members = members;
+      },
+      addMember(state,member){
+        state.members.push(member);
+      },
+      removeMember(state,memberIndex){
+        state.members.splice(memberIndex,1);
+      },
     },
     actions:{
 

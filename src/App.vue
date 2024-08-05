@@ -13,7 +13,8 @@
     <router-link to="/calculator4">9.계산기(4) </router-link>
 
     <router-link to="/Mixin">10. Mixin </router-link>
-    <router-link to="/user">11. vuex </router-link>
+    <router-link to="/user">11. vuex1 </router-link>
+    <router-link to="/member">11. vuex2 </router-link>
   </nav>
   <router-view/>
 </template>
