@@ -6,6 +6,12 @@
     <router-link to="/basic">5.컴포넌트(기본)</router-link>
     <router-link to="/deep">8.컴포넌트(심화) </router-link>
     <router-link to="/deep2">8.컴포넌트(심화2) </router-link>
+
+    <router-link to="/calculator1">9.계산기(1) </router-link>
+    <router-link to="/calculator2">9.계산기(2) </router-link>
+    <router-link to="/calculator3">9.계산기(3) </router-link>
+    <router-link to="/calculator4">9.계산기(4) </router-link>
+
   </nav>
   <router-view/>
 </template>

@@ -1,47 +1,23 @@
 <template>
-  <div class="gson">
-     <p :style="{color:tcolor}">작손2 : {{message}}</p>
-     {{gpapaMin}}
+  <div class="">
+    CalcylatorView2
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CuteGson22',
+  name: 'CalcylatorView1',
   props: {
-    // 문자열 타입의 prop 예시
-    //sampleString: {
-    //  type: String,
-    //  default: ''
-    //},
-    // 숫자 타입의 prop 예시
-    //sampleNumber: {
-    //  type: Number,
-    //  default: 0
-    //},
-    // 배열 타입의 prop 예시
-    //sampleArray: {
-    //  type: Array,
-    //  default: () => []
-    //},
-    // 객체 타입의 prop 예시
-    //sampleObject: {
-    //  type: Object,
-    //  default: () => ({})
-    //}
+
   },
   components: {
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
   },
   data() {
     return {
-      index:2,
-      tcolor:'red',
-      message:'',
       // 컴포넌트의 데이터를 초기화합니다.
     };
   },
-  inject:['gpapaMin'],
   watch: {
     // sample1() {
     //   console.log('');
@@ -76,12 +52,5 @@ export default {
 </script>
 
 <style scoped>
-.son{
-  background-color: moccasin;
-  padding: 20px;
-  margin: 20px;
-}
-.gson{
-  background-color: yellow;
-}
+/* 스타일을 추가하세요 */
 </style>

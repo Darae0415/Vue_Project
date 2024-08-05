@@ -9,9 +9,18 @@
     <button @click="clickSon20">큰아들버튼2</button>
     <button @click="clickSon30">큰아들버튼3</button>
   </div>
+  <div class="son">
+    <p>둘째아들</p>
+    <cute-gson-21 ref="gson21"/>
+    <cute-gson-22 ref="gson22"/>
+    <input type="text" v-model="sndMessage">
+    <button @click="clickSon10">둘째아들버튼</button>
+  </div>
 </template>
 
 <script>
+import CuteGson21 from '@/components/CuteGson21.vue';
+import CuteGson22 from '@/components/CuteGson22.vue';
 import CuteGson11 from '../components/CuteGson11.vue';
 import CuteGson12 from '../components/CuteGson12.vue';
 export default {
@@ -20,14 +29,22 @@ export default {
   },
   components: {
     CuteGson11,
-    CuteGson12
+    CuteGson12,
+    CuteGson21,
+    CuteGson22
     // 추가적으로 사용할 컴포넌트들을 등록합니다.
   },
   data() {
     return {
       message:'',
       sndMessage:'',
+      gpapaValues : [4,3,9],
     };
+  },
+  provide(){
+    return{gpapaLen : this.gpapaValues.length,
+    gpapaMin : Math.min(...this.gpapaValues)
+    }
   },
   computed:{
     // msg(){
