@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'CalcylatorView1',
+  name: 'CalcylatorView4',
   props: {
 
   },

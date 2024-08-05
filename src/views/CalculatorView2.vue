@@ -10,7 +10,7 @@
 <script>
 import {reactive} from 'vue';
 export default {
-  name: 'CalcylatorView1',
+  name: 'CalcylatorView2',
   setup(){
     //반응형 상태객체 : 속성이 변경될 때마다 자동으로 DOM업데이트
     let state = reactive({
